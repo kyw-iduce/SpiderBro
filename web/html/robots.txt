@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: /tuesday/1.html
+Disallow: /tuesday/2
+
+User-agent: SpiderBro
+Disallow: /wednesday/1.html
+Disallow: /wednesday/2
