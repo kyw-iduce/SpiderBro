@@ -13,3 +13,7 @@ sh run_server.sh
 
 ## Slides
 https://docs.google.com/presentation/d/1b3ad1HZDmFFCynNir-idhHNbfJACIE44qEyfntb2m6E/edit?usp=sharing
+
+## Documentation
+* https://jsoup.org/
+* http://sttp.readthedocs.io/en/latest/
