@@ -28,8 +28,8 @@ class CustomHTTPRequestHandler(
 
     def send_new_headers(self):
         headers_by_path = {
-            '/saturday/1.html': 'x-robots-tag: index, nofollow',
-            '/sunday/1.html': 'x-robots-tag: noindex, follow'
+            '/saturday/1.html': 'x-robots-tag: noindex, follow',
+            '/sunday/1.html': 'x-robots-tag: index, nofollow'
         }
 
         request_path = self.path
