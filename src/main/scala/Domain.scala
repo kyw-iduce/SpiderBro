@@ -61,12 +61,18 @@ class SpiderBro(url: String) {
     * All allowed links.
     */
   val links = getLinksPage(homePage)
-    .filter(l =>
-      Page.fromTitle(l.title).isInstanceOf[ProcessablePage] && ! disallowed.contains(l))
+    .filter(l => Page.fromTitle(l.title).isInstanceOf[ProcessablePage])
+    .filter(isDisallowed(disallowed))
     .flatMap(l => Seq(l) ++ getLinksPage(Jsoup.connect(url(l.href)).get()))
     .foreach {
       case Link(title, link) => println(s"http://localhost:8000/$link")
     }
+
+  def isDisallowed(disallowed:Seq[Link])(link: Link): Boolean ={
+    val l = link.href.trim
+    val d = disallowed.map(_.href.trim.drop(1))
+    !d.contains(l)
+  }
 }
 object Main extends App {
   val crawler = new SpiderBro("http://localhost:8000/")
